@@ -6,8 +6,8 @@ extension Comparable where Self: EquatableWithPrecision & SignedNumeric {
     }
 }
 
-@available(iOS 14.0, macOS 11.0, macCatalyst 14.0, tvOS 14.0, watchOS 7.0, *)
-extension Float16: EquatableWithPrecision {}
+//@available(iOS 14.0, macOS 11.0, macCatalyst 14.0, tvOS 14.0, watchOS 7.0, *)
+//extension Float16: EquatableWithPrecision {}
 
 extension Float: EquatableWithPrecision {}
 extension Double: EquatableWithPrecision {}
