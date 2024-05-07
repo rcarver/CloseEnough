@@ -21,6 +21,13 @@ extension Angle: EquatableWithPrecision {
 }
 #endif
 
+extension Array: EquatableWithPrecision where Element: EquatableWithPrecision, Element.Precision == Element {
+    public func isApproximatelyEqual(to other: Self, precision: Element) -> Bool {
+        guard self.count == other.count else { return false }
+        return zip(self, other).allSatisfy { $0.isApproximatelyEqual(to: $1, precision: precision) }
+    }
+}
+
 extension Date: EquatableWithPrecision {
     public func isApproximatelyEqual(to other: Date, precision: TimeInterval) -> Bool {
         abs(other.timeIntervalSince(self)) < precision
